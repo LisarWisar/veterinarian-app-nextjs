@@ -4,7 +4,7 @@ import LandingPageContent from "./ui/landing-page/landing-page-content";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-white">
+    <main className="flex min-h-screen flex-col bg-white overflow-y-scroll">
       <Navbar />
       <LandingPageContent />
       <Footer />

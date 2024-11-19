@@ -1,15 +1,20 @@
 "use client"
 import { useState } from "react"
+import { useRouter } from "next/navigation";
 
 export default function Login (){
+
+    const router = useRouter();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = () => {
         console.log("email: ", email);
+        router.push("/dashboard")
     }
 
     return(
-        <div className="flex flex-col w-96 h-72 p-4 bg-gray-100 border-solid border-1 rounded m-3 p-5 shadow-lg box-content">
+        <div className="flex flex-col w-96 h-max p-4 bg-gray-100 border-solid border-1 rounded m-3 p-5 shadow-lg box-content">
             <h1 className="mb-5 text-2xl font-bold">Login</h1>
             <form onSubmit={async (e) => {
                 await handleSubmit();
@@ -26,7 +31,7 @@ export default function Login (){
                     onChange={(e)=> setPassword(e.target.value)}></input>
                 </div>
                 <button className="mt-4 w-full rounded border bg-teal-400 border-teal-600 focus:border-black focus:bg-teal-500 py-1" type="submit">Sign in</button>
-                <h5>Don't have an account? <a href="/register" className="text-teal-600 font-medium">Register</a></h5>
+                <h5 className="text-sm mt-2">Don't have an account? <a href="/register" className="text-teal-600 font-medium">Register</a></h5>
             </form>
         </div>
     )
